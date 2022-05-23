@@ -7,7 +7,12 @@ import './networkDropdown.css'
 
 export default function NetworkDropDown() {
     const [isOpen, setOpen] = useState(false);
-    const [items, setItem] = useState([{ id: 82, label: "Meter" }, { id: 361, label: "Theta" }, { id: 1284, label: "Moonbeam" }]);
+    const [items, setItem] = useState([
+      { id: 82, label: 'Meter' },
+      { id: 83, label: 'Meter Testnet (Solidly)' },
+      { id: 361, label: 'Theta' },
+      { id: 1284, label: 'Moonbeam' }
+    ])
     const [selectedItem, setSelectedItem] = useState(361);
 
 

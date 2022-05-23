@@ -13,7 +13,7 @@ export default function NetworkDropDown() {
       { id: 361, label: 'Theta' },
       { id: 1284, label: 'Moonbeam' }
     ])
-    const [selectedItem, setSelectedItem] = useState(1284);
+    const [selectedItem, setSelectedItem] = useState(83);
 
 
     const toggleDropdown = () => setOpen(!isOpen);

@@ -10,9 +10,6 @@ import PairDataContextProvider, { Updater as PairDataContextUpdater } from './co
 import ApplicationContextProvider from './contexts/Application'
 import UserContextProvider from './contexts/User'
 import App from './App'
-import Theta from './Theta'
-import MoonBeam from './Moonbeam'
-import MeterSolidly from './MeterSolidly'
 
 // initialize GA
 // const GOOGLE_ANALYTICS_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_ID
@@ -51,9 +48,7 @@ function Updaters() {
   )
 }
 
-
-function Meter() {
-
+export default function MeterSolidly() {
   return (
     <ContextProviders>
       <Updaters />
@@ -65,87 +60,6 @@ function Meter() {
       </ThemeProvider>
     </ContextProviders>
   )
-}
-
-
-function Main() {
-
-  const queryString = window.location.href.split('?')[1]
-  let networkId = 'meter'
-
-
-
-  if (queryString) {
-    const [splitQueryString] = queryString.split('=')
-
-    if (splitQueryString && splitQueryString === 'network') {
-      [, networkId] = queryString.split('=')
-
-      if (networkId && networkId === 'theta') {
-        window.localStorage.setItem('chainId', '361')
-
-        return <Theta />
-      }
-
-      if (networkId && networkId === 'meter') {
-
-
-
-        window.localStorage.setItem('chainId', '82')
-        return <Meter />
-      }
-
-      if (networkId && networkId === 'moonbeam') {
-
-
-
-        window.localStorage.setItem('chainId', '1284')
-        return <MoonBeam />
-      }
-    }
-  }
-
-
-
-  let selected_network = window.sessionStorage.getItem("chainId")
-
-
-
-
-
-  if (!selected_network) {
-
-
-
-
-    return (
-      <Meter />
-    )
-
-  }
-
-  if (selected_network === '82') {
-
-    return <Meter />
-  }
-
-  if (selected_network === '83') {
-    return <MeterSolidly />
-  }
-
-  if (selected_network === '361') {
-
-    return <Theta />
-  }
-
-  if (selected_network === '1284') {
-    return <MoonBeam />
-  }
 
 }
 
-
-ReactDOM.render(
-  <Main />,
-  document.getElementById('root')
-)
